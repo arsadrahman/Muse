@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.arsa.muse.viewmodel.ActivityViewModel" />
+
+        <variable
+            name="activity"
+            type="com.arsa.muse.view.MainActivity" />
+    </data>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context=".view.MainActivity">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_view"
+                android:layout_width="match_parent"
+                android:layout_height="450dp"
+                android:layout_margin="10dp"
+                android:clickable="@{!viewModel.isLoading}"
+                android:onClick="@{(view)->activity.animateIntent(view,viewModel.cardOne,1)}"
+
+                app:cardBackgroundColor="#084072"
+                app:cardCornerRadius="20dp">
+                <ProgressBar
+                    android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"
+                    android:layout_gravity="center"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"></ProgressBar>
+                <ImageView
+                    android:transitionName="@string/card"
+                    android:id="@+id/cardOneIv"
+                    android:scaleType="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:imageUrl="@{viewModel.cardOne.url}">
+                </ImageView>
+
+                <LinearLayout
+                    android:background="@drawable/backgroundgradiant"
+                    android:orientation="vertical"
+                    android:layout_gravity="bottom"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp">
+
+                    <TextView
+                        android:textAllCaps="true"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="30sp"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewModel.cardOne.title}"
+                        android:gravity="center_horizontal"></TextView>
+                    <TextView
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:layout_marginTop="10dp"
+                        android:textSize="20sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewModel.cardOne.subtitle}"
+                        android:gravity="center_horizontal"></TextView>
+                </LinearLayout>
+
+
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="450dp"
+                android:layout_margin="10dp"
+                android:clickable="@{!viewModel.isLoading}"
+                android:onClick="@{(view)->activity.animateIntent(view,viewModel.cardTwo,2)}"
+                android:transitionName="@string/app_name"
+                app:cardBackgroundColor="#084072"
+                app:cardCornerRadius="20dp">
+                <ProgressBar
+                    android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"
+                    android:layout_gravity="center"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"></ProgressBar>
+                <ImageView
+                    android:transitionName="@string/card"
+                    android:id="@+id/cardTwoIv"
+                    android:scaleType="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:imageUrl="@{viewModel.cardTwo.url}">
+                </ImageView>
+
+                <LinearLayout
+                    android:background="@drawable/backgroundgradiant"
+                    android:orientation="vertical"
+                    android:layout_gravity="bottom"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp">
+
+                    <TextView
+                        android:textAllCaps="true"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="30sp"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewModel.cardTwo.title}"
+                        android:gravity="center_horizontal"></TextView>
+                    <TextView
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:layout_marginTop="10dp"
+                        android:textSize="20sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewModel.cardTwo.subtitle}"
+                        android:gravity="center_horizontal"></TextView>
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+
+                android:layout_width="match_parent"
+                android:layout_height="450dp"
+                android:layout_margin="10dp"
+                android:clickable="@{!viewModel.isLoading}"
+                android:onClick="@{(view)->activity.animateIntent(view,viewModel.cardThree,3)}"
+                android:transitionName="@string/app_name"
+                app:cardBackgroundColor="#084072"
+                app:cardCornerRadius="20dp">
+                <ProgressBar
+                    android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"
+                    android:layout_gravity="center"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"></ProgressBar>
+
+                <ImageView
+
+                    android:transitionName="@string/card"
+                    android:id="@+id/cardThreeIv"
+                    android:scaleType="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:imageUrl="@{viewModel.cardThree.url}">
+                </ImageView>
+
+                <LinearLayout
+                    android:background="@drawable/backgroundgradiant"
+                    android:orientation="vertical"
+                    android:layout_gravity="bottom"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp">
+
+                    <TextView
+                        android:textAllCaps="true"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="30sp"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewModel.cardThree.title}"
+                        android:gravity="center_horizontal"></TextView>
+                    <TextView
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:layout_marginTop="10dp"
+                        android:textSize="20sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewModel.cardThree.subtitle}"
+                        android:gravity="center_horizontal"></TextView>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+</layout>
